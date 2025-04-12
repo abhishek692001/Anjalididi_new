@@ -16,6 +16,10 @@
             --text-dark: #333;
             --bg-light: #f8f5f0;
             --bg-dark: #2d3b36;
+            --ayurvedic-green: #3a6351;
+            --ayurvedic-gold: #c9a66b;
+            --ayurvedic-earth: #8b5a2b;
+            --ayurvedic-spice: #d35400;
         }
         
         * {
@@ -46,24 +50,25 @@
         
         @keyframes float {
             0% {
-                transform: translateY(0px);
+                transform: translateY(0px) rotate(0deg);
             }
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-15px) rotate(3deg);
             }
             100% {
-                transform: translateY(0px);
+                transform: translateY(0px) rotate(0deg);
             }
         }
         
         .animate-fade-in {
-            animation: fadeIn 1.5s ease-in-out;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            opacity: 0;
         }
         
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -97,7 +102,7 @@
         
         .hero-slider {
             position: relative;
-            height: 85vh;
+            height: 100vh;
             overflow: hidden;
         }
         
@@ -108,28 +113,87 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            visibility: hidden;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
             background-size: cover;
             background-position: center;
+            z-index: 0;
         }
         
         .slide.active {
             opacity: 1;
+            visibility: visible;
+            z-index: 1;
         }
         
+        /* Prevent text from previous slides from showing through */
+        .slide:not(.active) .slide-overlay {
+            display: none;
+        }
+        
+        /* Improved slide overlay with better text containment */
         .slide-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text visibility */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
+            padding: 20px;
+        }
+        
+        /* Ensure text is properly contained */
+        .slide-overlay .container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 0 20px;
+            position: relative;
+            z-index: 5; /* Higher z-index to ensure content is above background */
+        }
+        
+        /* Improve text readability with stronger shadow */
+        .slide-overlay h1 {
+            text-shadow: 0 4px 12px rgba(0,0,0,0.9);
+            max-width: 100%;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .slide-overlay p {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+        
+        /* Responsive text sizing */
+        @media (max-width: 768px) {
+            .slide-overlay h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide-overlay p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slide-overlay h1 {
+                font-size: 2rem;
+            }
+            
+            .slide-overlay p {
+                font-size: 1rem;
+            }
         }
         
         .bg-ayurved-pattern {
@@ -140,6 +204,12 @@
             position: absolute;
             z-index: -1;
             opacity: 0.1;
+            transition: all 0.5s ease;
+        }
+        
+        .ayurvedic-element:hover {
+            opacity: 0.2;
+            transform: scale(1.1);
         }
         
         .herb-1 {
@@ -206,6 +276,8 @@
             z-index: 1;
             border: 2px solid var(--secondary-color);
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .btn-ayurved:before {
@@ -227,8 +299,13 @@
         .btn-ayurved:hover {
             border-color: var(--accent-color);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(181, 101, 29, 0.3);
+        }
+        
+        .btn-ayurved:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(181, 101, 29, 0.2);
         }
         
         .section-heading {
@@ -510,6 +587,101 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Additional Ayurvedic elements */
+        .ayurvedic-mandala {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.05;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid var(--ayurvedic-gold);
+            animation: rotateMandala 60s linear infinite;
+        }
+        
+        @keyframes rotateMandala {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .mandala-1 {
+            top: 10%;
+            left: -150px;
+        }
+        
+        .mandala-2 {
+            bottom: 5%;
+            right: -150px;
+        }
+        
+        /* New animations */
+        .animate-pulse-slow {
+            animation: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulseSlow {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+        
+        .animate-leaf-sway {
+            animation: leafSway 8s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+        
+        @keyframes leafSway {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(5deg);
+            }
+            75% {
+                transform: rotate(-5deg);
+            }
+        }
+        
+        /* Additional fixes for text overlap */
+        .slide-overlay .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide-overlay h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            width: 100%;
+            text-align: center;
+        }
+        
+        .slide-overlay p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            width: 100%;
+        }
+        
+        /* Ensure buttons don't overlap on mobile */
+        @media (max-width: 640px) {
+            .slide-overlay .flex.flex-col {
+                width: 100%;
+            }
+            
+            .slide-overlay .btn-ayurved {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -565,6 +737,24 @@
         </svg>
     </div>
     
+    <!-- Additional Ayurvedic Background Elements -->
+    <div class="ayurvedic-mandala mandala-1"></div>
+    <div class="ayurvedic-mandala mandala-2"></div>
+
+    <div class="ayurvedic-element herb-4 animate-leaf-sway" style="top: 40%; left: 20%;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+        </svg>
+    </div>
+
+    <div class="ayurvedic-element herb-5 animate-leaf-sway" style="bottom: 30%; right: 25%;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 22c1.25-1.25 2.5-2.5 3.75-2.5 1.25 0 1.25 1.25 2.5 1.25s1.25-1.25 2.5-1.25 1.25 1.25 2.5 1.25 1.25-1.25 2.5-1.25c1.25 0 2.5 1.25 3.75 2.5"></path>
+            <path d="M12 2v8"></path>
+            <path d="M8 10c0-2.5 4-2.5 4-5 0 2.5 4 2.5 4 5-1.5 1.5-2 1.5-4 1.5s-2.5 0-4-1.5z"></path>
+        </svg>
+    </div>
+    
     <!-- Header -->
     <header class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-4 py-3">
@@ -577,7 +767,7 @@
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center">
                     <a href="#about" class="nav-link">About</a>
-                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#consultations" class="nav-link">Services</a>
                     <a href="#principles" class="nav-link">Principles</a>
                     <a href="#testimonials" class="nav-link">Testimonials</a>
                     <a href="#contact" class="nav-link">Contact</a>
@@ -597,7 +787,7 @@
     <!-- Mobile Navigation Menu -->
     <div class="mobile-menu md:hidden">
         <a href="#about" class="nav-link">About</a>
-        <a href="#services" class="nav-link">Services</a>
+        <a href="#consultations" class="nav-link">Services</a>
         <a href="#principles" class="nav-link">Principles</a>
         <a href="#testimonials" class="nav-link">Testimonials</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -606,33 +796,41 @@
     
     <!-- Hero Section -->
     <section id="hero" class="hero-slider pt-20">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1536304575888-cdd39c7eb28b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide active animate-pulse-slow" style="background-image: url('https://images.unsplash.com/photo-1536304575888-cdd39c7eb28b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
             <div class="slide-overlay">
-                <h1 class="text-5xl font-bold mb-4 text-white animate-fade-in" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Welcome to Tatvam Ayurved</h1>
-                <p class="text-xl mb-8 max-w-xl text-center text-white animate-fade-in" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Authentic Ayurvedic Care by Dr. Anjali Zinzuvadiya in Ahmedabad</p>
-                <div class="flex space-x-4 animate-fade-in">
-                    <a href="#consultations" class="btn-ayurved">Book Consultation</a>
-                    <a href="#about" class="btn-ayurved bg-transparent text-white hover:text-white">Learn More</a>
+                <div class="container mx-auto px-4 max-w-5xl">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white animate-fade-in" style="text-shadow: 0 2px 10px rgba(0,0,0,0.7);">Natural Remedies for Better Health</h1>
+                    <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-center text-white animate-fade-in" style="text-shadow: 0 2px 6px rgba(0,0,0,0.7); animation-delay: 0.3s;">Discover the power of nature's medicine in our Ayurvedic treatments</p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in" style="animation-delay: 0.6s;">
+                        <a href="#consultations" class="btn-ayurved text-center">Book Consultation</a>
+                        <a href="#products" class="btn-ayurved bg-transparent text-white hover:text-white text-center">Our Products</a>
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1616921080321-d242e8562002?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+        </div>
+        
+        <div class="slide animate-pulse-slow" style="background-image: url('https://images.unsplash.com/photo-1552693673-1bf958298935?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
             <div class="slide-overlay">
-                <h1 class="text-5xl font-bold mb-4 text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Holistic Wellness Through Ayurveda</h1>
-                <p class="text-xl mb-8 max-w-xl text-center text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Experience traditional healing wisdom for modern health challenges</p>
-                <div class="flex space-x-4">
-                    <a href="#consultations" class="btn-ayurved">Book Consultation</a>
-                    <a href="#services" class="btn-ayurved bg-transparent text-white hover:text-white">Our Services</a>
+                <div class="container mx-auto px-4 max-w-5xl">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white animate-fade-in" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Personalized Ayurvedic Care</h1>
+                    <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-center text-white animate-fade-in" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5); animation-delay: 0.3s;">Tailored treatments based on your unique constitution and health needs</p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in" style="animation-delay: 0.6s;">
+                        <a href="#consultations" class="btn-ayurved text-center">Book Consultation</a>
+                        <a href="#about" class="btn-ayurved bg-transparent text-white hover:text-white text-center">Learn More</a>
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1577468100885-17d954572af7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+        </div>
+        
+        <div class="slide animate-pulse-slow" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
             <div class="slide-overlay">
-                <h1 class="text-5xl font-bold mb-4 text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Natural Remedies for Better Health</h1>
-                <p class="text-xl mb-8 max-w-xl text-center text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Discover the power of nature's medicine in our Ayurvedic treatments</p>
-                <div class="flex space-x-4">
-                    <a href="#consultations" class="btn-ayurved">Book Consultation</a>
-                    <a href="#products" class="btn-ayurved bg-transparent text-white hover:text-white">Our Products</a>
+                <div class="container mx-auto px-4 max-w-5xl">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white animate-fade-in" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Ancient Wisdom, Modern Wellness</h1>
+                    <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-center text-white animate-fade-in" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5); animation-delay: 0.3s;">Experience the time-tested healing traditions of Ayurveda with Dr. Anjali</p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in" style="animation-delay: 0.6s;">
+                        <a href="#consultations" class="btn-ayurved text-center">Book Consultation</a>
+                        <a href="#testimonials" class="btn-ayurved bg-transparent text-white hover:text-white text-center">Read Testimonials</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -711,173 +909,234 @@
         </div>
     </section>
     
-    <!-- Services Section -->
-    <section id="services" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold section-heading animate-on-scroll">Our Services</h2>
-            </div>
-            <div class="flex flex-wrap -mx-4">
-                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll">
-                    <div class="relative service-card h-full bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1573811651468-59df59eb7be2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ayurvedic Consultation" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-3 text-green-800">Ayurvedic Consultation</h3>
-                            <p class="mb-4">Comprehensive assessment of your constitution (prakriti) and current imbalances (vikriti) to develop a personalized treatment plan.</p>
-                            <a href="#consultations" class="text-green-700 font-semibold hover:text-green-900 transition-colors">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 0.2s;">
-                    <div class="relative service-card h-full bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1611073615830-3e3302e56d85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dietary Counseling" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-3 text-green-800">Dietary Counseling</h3>
-                            <p class="mb-4">Customized nutrition advice based on Ayurvedic principles to restore balance and support your overall wellness goals.</p>
-                            <a href="#consultations" class="text-green-700 font-semibold hover:text-green-900 transition-colors">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 0.4s;">
-                    <div class="relative service-card h-full bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Herbal Remedies" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-3 text-green-800">Herbal Remedies</h3>
-                            <p class="mb-4">Natural formulations using traditional Ayurvedic herbs to address specific health concerns and promote healing.</p>
-                            <a href="#products" class="text-green-700 font-semibold hover:text-green-900 transition-colors">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 0.6s;">
-                    <div class="relative service-card h-full bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1545236823-1cc3e5fe4d04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Panchakarma Therapy" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-3 text-green-800">Panchakarma Therapy</h3>
-                            <p class="mb-4">A comprehensive detoxification treatment that removes accumulated toxins and restores the body's natural balance.</p>
-                            <a href="#consultations" class="text-green-700 font-semibold hover:text-green-900 transition-colors">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 0.8s;">
-                    <div class="relative service-card h-full bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lifestyle Coaching" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-3 text-green-800">Lifestyle Coaching</h3>
-                            <p class="mb-4">Guidance on daily routines, exercise, sleep patterns, and stress management based on Ayurvedic principles.</p>
-                            <a href="#consultations" class="text-green-700 font-semibold hover:text-green-900 transition-colors">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 1s;">
-                    <div class="relative service-card h-full bg-white rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Online Consultations" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-3 text-green-800">Online Consultations</h3>
-                            <p class="mb-4">Virtual appointments with Dr. Anjali, making Ayurvedic care accessible regardless of your location.</p>
-                            <a href="#consultations" class="text-green-700 font-semibold hover:text-green-900 transition-colors">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Consultation Options -->
+    <!-- Consultations Section -->
     <section id="consultations" class="py-20 bg-green-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold section-heading animate-on-scroll">Consultation Options</h2>
+                <h2 class="text-4xl font-bold section-heading animate-on-scroll">Our Services</h2>
+                <p class="text-lg max-w-3xl mx-auto mt-6 animate-on-scroll">Experience personalized Ayurvedic care tailored to your unique constitution and health needs. Choose from our range of consultation options.</p>
             </div>
-            <div class="flex flex-wrap -mx-4">
-                <div class="md:w-1/2 px-4 mb-10 animate-on-scroll">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
-                        <div class="bg-green-700 p-6 text-center">
-                            <h3 class="text-2xl font-bold text-white">In-Person Consultation</h3>
-                            <p class="text-white opacity-90 mt-2">Visit our clinic in Gota, Ahmedabad</p>
-                            <div class="text-3xl font-bold text-white mt-4">₹200 <span class="text-sm font-normal">per session</span></div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Ayurvedic Consultation -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-on-scroll">
+                    <div class="h-48 bg-gradient-to-r from-green-700 to-green-500 flex items-center justify-center">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d1-200d-2695-fe0f.svg" alt="Doctor" class="h-24 w-24 animate-pulse-slow">
                         </div>
                         <div class="p-6">
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Thorough physical examination</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Pulse diagnosis (Nadi Pariksha)</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Personalized treatment plan</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Follow-up recommendations</span>
-                                </li>
-                            </ul>
-                            <div class="mt-8 text-center">
-                                <a href="#contact" class="btn-ayurved">Book Appointment</a>
-                            </div>
+                        <h3 class="text-2xl font-bold mb-3 text-green-800">Ayurvedic Consultation</h3>
+                        <p class="mb-4">A comprehensive assessment of your health based on Ayurvedic principles. Dr. Anjali will determine your unique body constitution (Prakriti) and current imbalances (Vikriti).</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Pulse diagnosis (Nadi Pariksha)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Personalized treatment plan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Herbal medicine recommendations</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-green-700">₹1,200</span>
+                            <a href="#contact" class="btn-ayurved">Book Now</a>
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 0.3s;">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
-                        <div class="bg-green-600 p-6 text-center">
-                            <h3 class="text-2xl font-bold text-white">Online Consultation</h3>
-                            <p class="text-white opacity-90 mt-2">Connect from the comfort of your home</p>
-                            <div class="text-3xl font-bold text-white mt-4">₹100 <span class="text-sm font-normal">per session</span></div>
+                
+                <!-- Dietary Counseling -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-r from-yellow-600 to-yellow-400 flex items-center justify-center">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f957.svg" alt="Food" class="h-24 w-24 animate-pulse-slow">
                         </div>
                         <div class="p-6">
-                            <ul class="space-y-4">
+                        <h3 class="text-2xl font-bold mb-3 text-green-800">Dietary Counseling</h3>
+                        <p class="mb-4">Food is medicine in Ayurveda. Receive customized dietary recommendations based on your dosha type and current health concerns.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Dosha-specific food guidelines</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Meal planning assistance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Seasonal eating recommendations</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-green-700">₹900</span>
+                            <a href="#contact" class="btn-ayurved">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Herbal Remedies -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="h-48 bg-gradient-to-r from-green-600 to-teal-400 flex items-center justify-center">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f33f.svg" alt="Herb" class="h-24 w-24 animate-pulse-slow">
+                        </div>
+                        <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-green-800">Herbal Remedies</h3>
+                        <p class="mb-4">Discover the healing power of Ayurvedic herbs with customized herbal formulations prepared specifically for your health concerns.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Custom herbal formulations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Traditional Ayurvedic preparations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Detailed usage instructions</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-green-700">₹800+</span>
+                            <a href="#contact" class="btn-ayurved">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Panchakarma Therapy -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-on-scroll">
+                    <div class="h-48 bg-gradient-to-r from-red-600 to-orange-400 flex items-center justify-center">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4a7.svg" alt="Droplet" class="h-24 w-24 animate-pulse-slow">
+                        </div>
+                        <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-green-800">Panchakarma Therapy</h3>
+                        <p class="mb-4">The ultimate Ayurvedic detoxification and rejuvenation program. Panchakarma cleanses the body of toxins and restores balance to the doshas.</p>
+                        <ul class="space-y-2 mb-6">
                                 <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span>Convenient and accessible</span>
+                                <span>Personalized therapy plan</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span>Detailed discussion of symptoms</span>
+                                <span>Specialized treatments</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                <span>Pre and post-therapy guidance</span>
+                                </li>
+                            </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-green-700">₹15,000+</span>
+                            <a href="#contact" class="btn-ayurved">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                <!-- Lifestyle Coaching -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 to-indigo-400 flex items-center justify-center">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9d8.svg" alt="Yoga" class="h-24 w-24 animate-pulse-slow">
+                        </div>
+                        <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-green-800">Lifestyle Coaching</h3>
+                        <p class="mb-4">Learn how to integrate Ayurvedic principles into your daily routine for optimal health and wellbeing.</p>
+                        <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                <span>Daily routine (Dinacharya) guidance</span>
+                                </li>
+                                <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                <span>Yoga and meditation recommendations</span>
+                                </li>
+                                <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Stress management techniques</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-green-700">₹1,500</span>
+                            <a href="#contact" class="btn-ayurved">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Online Consultations -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="h-48 bg-gradient-to-r from-purple-600 to-pink-400 flex items-center justify-center">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4f1.svg" alt="Mobile" class="h-24 w-24 animate-pulse-slow">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-green-800">Online Consultations</h3>
+                        <p class="mb-4">Access Dr. Anjali's expertise from anywhere in the world through our convenient online consultation service.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Video consultation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
                                     <span>Digital prescription</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span>Email follow-up support</span>
+                                <span>Follow-up email support</span>
                                 </li>
                             </ul>
-                            <div class="mt-8 text-center">
-                                <a href="#contact" class="btn-ayurved">Book Appointment</a>
-                            </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-green-700">₹1,000</span>
+                            <a href="#contact" class="btn-ayurved">Book Now</a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white rounded-lg shadow-lg p-8 mt-10 animate-on-scroll" style="animation-delay: 0.5s;">
+            <!-- Consultation Schedule -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mt-12 animate-on-scroll">
                 <h3 class="text-2xl font-bold mb-6 text-center text-green-800">Consultation Schedule</h3>
                 <div class="flex flex-wrap -mx-4">
                     <div class="md:w-1/2 px-4 mb-6 md:mb-0">
                         <div class="flex items-center mb-4">
                             <div class="bg-green-100 p-3 rounded-full mr-4">
-                                <svg class="h-6 w-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="h-6 w-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                 </svg>
                             </div>
@@ -890,7 +1149,7 @@
                     <div class="md:w-1/2 px-4">
                         <div class="flex items-center mb-4">
                             <div class="bg-green-100 p-3 rounded-full mr-4">
-                                <svg class="h-6 w-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="h-6 w-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                 </svg>
                             </div>
@@ -902,7 +1161,10 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-center mt-6 text-gray-600">Prior appointment is recommended to avoid waiting time.</p>
+                <div class="text-center mt-6">
+                    <p class="text-gray-600 mb-4">Prior appointment is recommended to avoid waiting time.</p>
+                    <a href="#contact" class="btn-ayurved inline-block">Schedule Your Visit</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1343,20 +1605,21 @@
                                 <p>dr.anjali@tatvamayurved.com</p>
                             </div>
                         </div>
+                        <!-- Footer Social Icons Section -->
                         <div class="mt-8">
-                            <h4 class="font-bold text-lg mb-4">Connect With Us</h4>
-                            <div class="flex">
-                                <a href="#" class="social-icon">
-                                    <i class="fab fa-facebook-f"></i>
+                            <h4 class="font-bold text-lg mb-4 text-green-700">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                                    <i class="fab fa-facebook-f text-xl"></i>
                                 </a>
-                                <a href="#" class="social-icon">
-                                    <i class="fab fa-instagram"></i>
+                                <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                                    <i class="fab fa-instagram text-xl"></i>
                                 </a>
-                                <a href="#" class="social-icon">
-                                    <i class="fab fa-twitter"></i>
+                                <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                                    <i class="fab fa-twitter text-xl"></i>
                                 </a>
-                                <a href="#" class="social-icon">
-                                    <i class="fab fa-youtube"></i>
+                                <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                                    <i class="fab fa-youtube text-xl"></i>
                                 </a>
                             </div>
                         </div>
@@ -1387,25 +1650,28 @@
                         </div>
                     </a>
                     <p class="mb-6 text-gray-300">Authentic Ayurvedic care for holistic wellness and natural healing.</p>
-                    <div class="flex">
-                        <a href="#" class="social-icon mr-3">
-                            <i class="fab fa-facebook-f"></i>
+                    
+                    <!-- Updated social media section with better visibility -->
+                    <h4 class="text-lg font-bold mb-4 text-green-300">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                            <i class="fab fa-facebook-f text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon mr-3">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                            <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon mr-3">
-                            <i class="fab fa-twitter"></i>
+                        <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                            <i class="fab fa-twitter text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-youtube"></i>
+                        <a href="#" class="bg-green-700 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                            <i class="fab fa-youtube text-xl"></i>
                         </a>
                     </div>
                 </div>
                 <div class="w-full md:w-1/4 mb-10 md:mb-0">
                     <h3 class="footer-heading">Quick Links</h3>
                     <a href="#about" class="footer-link">About Us</a>
-                    <a href="#services" class="footer-link">Services</a>
+                    <a href="#consultations" class="footer-link">Services</a>
                     <a href="#products" class="footer-link">Products</a>
                     <a href="#principles" class="footer-link">Ayurvedic Principles</a>
                     <a href="#testimonials" class="footer-link">Testimonials</a>
@@ -1446,8 +1712,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div class="text-gray-300">
-                            <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
-                            <p>Sun: 7:00 AM - 10:30 AM, 8:00 PM - 10:30 PM</p>
+                            <div class="footer-schedule">
+                                <span class="schedule-item">Mon-Sat: 9:00 AM - 6:00 PM</span>
+                                <span class="schedule-item">Sun: 7:00 AM - 10:30 AM, 8:00 PM - 10:30 PM</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1484,12 +1752,33 @@
         let currentSlide = 0;
         
         function nextSlide() {
+            // Hide current slide
             slides[currentSlide].classList.remove('active');
+            slides[currentSlide].style.zIndex = "0";
+            
+            // Update current slide index
             currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Show next slide
             slides[currentSlide].classList.add('active');
+            slides[currentSlide].style.zIndex = "1";
+            
+            // Reset animations for the new active slide
+            const fadeElements = slides[currentSlide].querySelectorAll('.animate-fade-in');
+            fadeElements.forEach((el, index) => {
+                el.style.animation = 'none';
+                el.offsetHeight; // Trigger reflow
+                el.style.animation = null;
+                el.style.animationDelay = (0.3 * index) + 's';
+            });
         }
         
-        setInterval(nextSlide, 5000);
+        // Initialize first slide
+        slides[currentSlide].classList.add('active');
+        slides[currentSlide].style.zIndex = "1";
+        
+        // Change slide every 7 seconds
+        setInterval(nextSlide, 7000);
         
         // Animate on scroll
         const animateOnScroll = () => {
@@ -1562,6 +1851,61 @@
             delay: function() {
                 return anime.random(0, 2000);
             }
+        });
+        
+        // Improved slide transition function
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            let slideInterval;
+            
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                    slide.style.zIndex = "0";
+                    slide.style.visibility = "hidden";
+                });
+                
+                // Show the selected slide
+                slides[index].classList.add('active');
+                slides[index].style.zIndex = "1";
+                slides[index].style.visibility = "visible";
+                
+                // Reset animations
+                const fadeElements = slides[index].querySelectorAll('.animate-fade-in');
+                fadeElements.forEach((el, i) => {
+                    el.style.animation = 'none';
+                    el.offsetHeight; // Trigger reflow
+                    el.style.animation = null;
+                    el.style.animationDelay = (0.3 * i) + 's';
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Initialize first slide
+            showSlide(0);
+            
+            // Clear any existing intervals
+            if (slideInterval) {
+                clearInterval(slideInterval);
+            }
+            
+            // Set new interval
+            slideInterval = setInterval(nextSlide, 7000);
+            
+            // Stop animation when tab is not visible to prevent stacking
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    clearInterval(slideInterval);
+                } else {
+                    slideInterval = setInterval(nextSlide, 7000);
+                }
+            });
         });
     </script>
 </body>
