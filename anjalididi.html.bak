@@ -198,6 +198,206 @@
             transform: scale(1);
         }
         
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatvam Ayurved - Dr. Anjali Zinzuvadiya</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5c8d76;
+            --secondary-color: #b5651d;
+            --accent-color: #daa520;
+            --text-light: #f8f0e3;
+            --text-dark: #333;
+            --bg-light: #f8f5f0;
+            --bg-dark: #2d3b36;
+            --ayurvedic-green: #3a6351;
+            --ayurvedic-gold: #c9a66b;
+            --ayurvedic-earth: #8b5a2b;
+            --ayurvedic-spice: #d35400;
+            --focus-outline: rgba(92, 141, 118, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        /* Improve accessibility */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+        
+        /* Improve text contrast for better readability */
+        p, li, span {
+            color: #222;
+            line-height: 1.6;
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        a, button, input[type="submit"] {
+            transition: all 0.3s ease;
+        }
+        
+        /* Better spacing between sections */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        /* Improve responsive behavior */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            h2.section-heading {
+                font-size: 1.75rem;
+            }
+        }
+        
+        /* Add a subtle hover effect to cards */
+        .service-card:hover, .testimonial-card:hover, .dosha-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Fix form styling */
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary-color);
+        }
+        
+        /* Improve image loading behavior */
+        img {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        img.lazy {
+            opacity: 0;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+            background-image: url('https://cdn.jsdelivr.net/gh/heroicons/heroicons@main/optimized/solid/cloud.svg');
+            background-size: 400px;
+            background-opacity: 0.05;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Philosopher', serif;
+            color: var(--primary-color);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(3deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 5px 0;
+            margin: 0 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out, transform 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            transform: scale(1.05);
+        }
+        
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+            transform: scale(1);
+        }
+        
         /* Prevent text from previous slides from showing through */
         .slide:not(.active) .slide-overlay {
             display: none !important;
