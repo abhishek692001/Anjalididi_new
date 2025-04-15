@@ -1283,119 +1283,6 @@
         .hero-slider .btn-ayurved:hover {
             color: white !important;
         }
-        
-        /* Slider/Carousel Styles */
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 10px 0;
-        }
-        
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            margin-left: -10px;
-            margin-right: -10px;
-        }
-        
-        .carousel-slide {
-            flex: 0 0 auto;
-            width: 100%;
-            padding: 0 10px;
-        }
-        
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 1rem;
-        }
-        
-        .carousel-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(52, 211, 153, 0.2);
-            color: #047857;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            outline: none;
-            z-index: 10;
-        }
-        
-        .carousel-arrow:hover {
-            background-color: rgba(52, 211, 153, 0.4);
-            transform: scale(1.1);
-        }
-        
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-            gap: 0.5rem;
-        }
-        
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #d1d5db;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-dot.active {
-            background-color: #047857;
-            transform: scale(1.2);
-        }
-        
-        /* Responsive Settings */
-        @media (min-width: 640px) {
-            .carousel-slide {
-                width: 50%;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .carousel-slide {
-                width: 33.333%;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .carousel-slide {
-                width: 25%;
-            }
-        }
-        
-        /* Section Specific Overrides */
-        #products .carousel-slide {
-            height: 100%;
-        }
-        
-        #principles .carousel-slide {
-            height: 100%;
-        }
-        
-        #medicinal-plants .carousel-slide {
-            height: 100%;
-        }
-        
-        #testimonials .carousel-slide {
-            height: 100%;
-        }
-        
-        /* Ensure cards are the same height in carousel */
-        .carousel-slide .service-card,
-        .carousel-slide .dosha-card,
-        .carousel-slide .testimonial-card {
-            height: 100%;
-        }
     </style>
 </head>
 <body>
@@ -2264,112 +2151,51 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold section-heading animate-on-scroll">Our Products</h2>
             </div>
-            <div class="carousel-container animate-on-scroll">
-                <div class="carousel-track products-carousel">
-                    <!-- Product 1 -->
-                    <div class="carousel-slide">
-                        <div class="service-card bg-white rounded-lg shadow-md overflow-hidden h-full">
-                            <img src="https://images.unsplash.com/photo-1598452963314-b09f397a5c48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hair Serum" class="w-full h-48 object-cover">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1598452963314-b09f397a5c48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hair Serum" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2 text-green-800">Hair Serum</h3>
                         <p class="mb-4">A special formulation of natural herbs that nourishes hair follicles, promotes growth, and adds shine to your hair.</p>
                         <div class="flex justify-between items-center mt-6">
                             <span class="text-xl font-bold text-green-700">₹850</span>
-                                    <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
+                            <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
                         </div>
                     </div>
                 </div>
-                    </div>
-                    
-                    <!-- Product 2 -->
-                    <div class="carousel-slide">
-                        <div class="service-card bg-white rounded-lg shadow-md overflow-hidden h-full">
-                            <img src="https://images.unsplash.com/photo-1615526675850-8c3baa8b7eb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Anti Hair Fall Shampoo" class="w-full h-48 object-cover">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden animate-on-scroll" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1615526675850-8c3baa8b7eb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Anti Hair Fall Shampoo" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2 text-green-800">Anti Hair Fall Shampoo</h3>
                         <p class="mb-4">Made with powerful Ayurvedic ingredients that strengthen hair roots and prevent hair loss while maintaining scalp health.</p>
                         <div class="flex justify-between items-center mt-6">
                             <span class="text-xl font-bold text-green-700">₹650</span>
-                                    <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
+                            <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
                         </div>
                     </div>
                 </div>
-                    </div>
-                    
-                    <!-- Product 3 -->
-                    <div class="carousel-slide">
-                        <div class="service-card bg-white rounded-lg shadow-md overflow-hidden h-full">
-                            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pigmentation Cream" class="w-full h-48 object-cover">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden animate-on-scroll" style="animation-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pigmentation Cream" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2 text-green-800">Pigmentation Cream</h3>
                         <p class="mb-4">An effective solution for skin pigmentation issues, formulated with natural ingredients that even out skin tone.</p>
                         <div class="flex justify-between items-center mt-6">
                             <span class="text-xl font-bold text-green-700">₹950</span>
-                                    <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
+                            <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
                         </div>
                     </div>
                 </div>
-                    </div>
-                    
-                    <!-- Product 4 -->
-                    <div class="carousel-slide">
-                        <div class="service-card bg-white rounded-lg shadow-md overflow-hidden h-full">
-                            <img src="https://images.unsplash.com/photo-1608571423539-e951a27069d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sat Dhaut Ghrit Cream" class="w-full h-48 object-cover">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden animate-on-scroll" style="animation-delay: 0.6s;">
+                    <img src="https://images.unsplash.com/photo-1608571423539-e951a27069d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sat Dhaut Ghrit Cream" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2 text-green-800">Sat Dhaut Ghrit Cream</h3>
                         <p class="mb-4">A traditional Ayurvedic preparation with multiple therapeutic benefits for skin health and overall wellness.</p>
                         <div class="flex justify-between items-center mt-6">
                             <span class="text-xl font-bold text-green-700">₹1,250</span>
-                                    <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
+                            <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
                         </div>
                     </div>
                 </div>
-                    </div>
-                    
-                    <!-- Product 5 (Additional) -->
-                    <div class="carousel-slide">
-                        <div class="service-card bg-white rounded-lg shadow-md overflow-hidden h-full">
-                            <img src="https://images.unsplash.com/photo-1577009683331-5dd26c16d952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Herbal Face Pack" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 text-green-800">Herbal Face Pack</h3>
-                                <p class="mb-4">A rejuvenating blend of pure herbs that purifies the skin, removes toxins, and gives a natural glow to your face.</p>
-                                <div class="flex justify-between items-center mt-6">
-                                    <span class="text-xl font-bold text-green-700">₹550</span>
-                                    <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Product 6 (Additional) -->
-                    <div class="carousel-slide">
-                        <div class="service-card bg-white rounded-lg shadow-md overflow-hidden h-full">
-                            <img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Joint Pain Oil" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 text-green-800">Joint Pain Oil</h3>
-                                <p class="mb-4">A special oil formulation with warming herbs and essential oils that relieves joint pain and improves mobility.</p>
-                                <div class="flex justify-between items-center mt-6">
-                                    <span class="text-xl font-bold text-green-700">₹750</span>
-                                    <a href="#contact-form" class="btn-ayurved text-sm py-2 px-4">Enquire</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="carousel-controls">
-                    <button class="carousel-arrow prev-arrow products-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button class="carousel-arrow next-arrow products-next">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="carousel-dots products-dots"></div>
             </div>
         </div>
     </section>
@@ -2381,10 +2207,8 @@
                 <h2 class="text-4xl font-bold section-heading animate-on-scroll">Ayurvedic Principles</h2>
                 <p class="text-lg max-w-3xl mx-auto mt-6 animate-on-scroll">Ayurveda is based on the belief that health and wellness depend on a delicate balance between the mind, body, and spirit. The primary goal of Ayurvedic medicine is to promote good health, rather than fight disease.</p>
             </div>
-            <div class="carousel-container animate-on-scroll">
-                <div class="carousel-track principles-carousel">
-                    <!-- Vata -->
-                    <div class="carousel-slide">
+            <div class="flex flex-wrap -mx-4">
+                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll">
                     <div class="dosha-card h-full">
                         <div class="text-center mb-6">
                             <div class="bg-blue-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
@@ -2418,9 +2242,7 @@
                         </ul>
                     </div>
                 </div>
-                    
-                    <!-- Pitta -->
-                    <div class="carousel-slide">
+                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 0.3s;">
                     <div class="dosha-card h-full">
                         <div class="text-center mb-6">
                             <div class="bg-red-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
@@ -2455,9 +2277,7 @@
                         </ul>
                     </div>
                 </div>
-                    
-                    <!-- Kapha -->
-                    <div class="carousel-slide">
+                <div class="lg:w-1/3 md:w-1/2 px-4 mb-10 animate-on-scroll" style="animation-delay: 0.6s;">
                     <div class="dosha-card h-full">
                         <div class="text-center mb-6">
                             <div class="bg-green-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
@@ -2491,93 +2311,6 @@
                         </ul>
                     </div>
                 </div>
-                    
-                    <!-- Balance (Additional) -->
-                    <div class="carousel-slide">
-                        <div class="dosha-card h-full">
-                            <div class="text-center mb-6">
-                                <div class="bg-purple-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-2xl font-bold mt-4 mb-2 text-purple-700">Balance</h3>
-                                <p class="text-gray-600 mb-4">Harmony of All Doshas</p>
-                            </div>
-                            <p class="mb-6">Achieving balance between all three doshas is the ultimate goal of Ayurveda, leading to optimal health and wellbeing.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Creates optimal physical health</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Promotes mental clarity and focus</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Supports spiritual growth and awareness</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Panchakarma (Additional) -->
-                    <div class="carousel-slide">
-                        <div class="dosha-card h-full">
-                            <div class="text-center mb-6">
-                                <div class="bg-amber-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-2xl font-bold mt-4 mb-2 text-amber-700">Panchakarma</h3>
-                                <p class="text-gray-600 mb-4">Cleansing and Rejuvenation</p>
-                            </div>
-                            <p class="mb-6">Panchakarma is a five-fold detoxification and cleansing process that eliminates toxins and restores energetic balance.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Removes accumulated toxins</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Restores constitutional balance</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 text-amber-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span>Rejuvenates body, mind and spirit</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="carousel-controls">
-                    <button class="carousel-arrow prev-arrow principles-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button class="carousel-arrow next-arrow principles-next">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="carousel-dots principles-dots"></div>
             </div>
         </div>
     </section>
@@ -2590,11 +2323,9 @@
                 <p class="text-lg max-w-3xl mx-auto mt-6 animate-on-scroll">Discover the healing power of nature's pharmacy. These sacred plants have been used for thousands of years in Ayurvedic medicine.</p>
             </div>
             
-            <div class="carousel-container animate-on-scroll">
-                <div class="carousel-track plants-carousel">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Ashwagandha -->
-                    <div class="carousel-slide">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-on-scroll">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1620726990336-65b9c3633c9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ashwagandha" class="w-full h-64 object-cover">
                         <div class="absolute top-0 right-0 bg-green-700 text-white px-4 py-2 rounded-bl-lg font-semibold">
@@ -2627,58 +2358,16 @@
                                     <span>Supports adrenal function</span>
                             </li>
                         </ul>
-                                </div>
                     </div>
                 </div>
                 </div>
                 
                 <!-- Turmeric -->
-                    <div class="carousel-slide">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-on-scroll" style="animation-delay: 0.2s;">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Turmeric" class="w-full h-64 object-cover">
                         <div class="absolute top-0 right-0 bg-yellow-600 text-white px-4 py-2 rounded-bl-lg font-semibold">
                             Anti-inflammatory
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                                    <span class="text-yellow-600 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                            </span>
-                                    <h3 class="text-xl font-bold">Turmeric</h3>
-                        </div>
-                                <p class="text-gray-600 mb-4">A powerful anti-inflammatory and antioxidant, turmeric contains curcumin which has numerous health benefits.</p>
-                        <div class="border-t border-gray-200 pt-4">
-                            <h4 class="font-semibold mb-2 text-green-800">Key Benefits:</h4>
-                            <ul class="text-gray-600 space-y-1">
-                                <li class="flex items-start">
-                                            <span class="text-yellow-600 mr-2">•</span>
-                                            <span>Fights inflammation</span>
-                            </li>
-                            <li class="flex items-start">
-                                            <span class="text-yellow-600 mr-2">•</span>
-                                            <span>Improves digestion</span>
-                            </li>
-                            <li class="flex items-start">
-                                            <span class="text-yellow-600 mr-2">•</span>
-                                            <span>Supports brain health</span>
-                            </li>
-                        </ul>
-                    </div>
-                        </div>
-                    </div>
-                </div>
-                
-                    <!-- Triphala -->
-                    <div class="carousel-slide">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full">
-                    <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1597120830041-30911c2b6550?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Triphala" class="w-full h-64 object-cover">
-                                <div class="absolute top-0 right-0 bg-green-700 text-white px-4 py-2 rounded-bl-lg font-semibold">
-                                    Detoxifier
                         </div>
                     </div>
                     <div class="p-6">
@@ -2688,77 +2377,149 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                             </span>
-                                    <h3 class="text-xl font-bold">Triphala</h3>
+                            <h3 class="text-xl font-bold">Turmeric (Haldi)</h3>
                         </div>
-                                <p class="text-gray-600 mb-4">A traditional Ayurvedic formula consisting of three fruits: Amalaki, Bibhitaki, and Haritaki, known for its detoxifying properties.</p>
+                        <p class="text-gray-600 mb-4">A powerful anti-inflammatory herb containing curcumin, turmeric helps reduce inflammation, improve digestion, and support joint health.</p>
                         <div class="border-t border-gray-200 pt-4">
                             <h4 class="font-semibold mb-2 text-green-800">Key Benefits:</h4>
                             <ul class="text-gray-600 space-y-1">
                                 <li class="flex items-start">
                                     <span class="text-green-500 mr-2">•</span>
-                                            <span>Supports digestive health</span>
+                                    <span>Powerful antioxidant properties</span>
                             </li>
                             <li class="flex items-start">
                                     <span class="text-green-500 mr-2">•</span>
-                                            <span>Rich in antioxidants</span>
-                                </li>
-                                <li class="flex items-start">
+                                    <span>Supports healthy joints</span>
+                            </li>
+                            <li class="flex items-start">
                                     <span class="text-green-500 mr-2">•</span>
-                                            <span>Gentle detoxification</span>
-                                </li>
-                            </ul>
-                                </div>
-                        </div>
+                                    <span>Enhances skin health</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                </div>
                 
-                    <!-- Brahmi -->
-                    <div class="carousel-slide">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full">
+                <!-- Brahmi -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-on-scroll" style="animation-delay: 0.4s;">
                     <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1594646432309-27453e66094c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Brahmi" class="w-full h-64 object-cover">
-                                <div class="absolute top-0 right-0 bg-blue-600 text-white px-4 py-2 rounded-bl-lg font-semibold">
-                                    Brain Tonic
+                        <img src="https://images.unsplash.com/photo-1515513284006-9a59075694b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Brahmi" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 right-0 bg-blue-600 text-white px-4 py-2 rounded-bl-lg font-semibold">
+                            Brain Tonic
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                                    <span class="text-blue-600 mr-2">
+                            <span class="text-green-700 mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                             </span>
-                                    <h3 class="text-xl font-bold">Brahmi</h3>
+                            <h3 class="text-xl font-bold">Brahmi (Bacopa)</h3>
                         </div>
-                                <p class="text-gray-600 mb-4">A powerful herb that enhances brain function, improves memory, and reduces anxiety and stress.</p>
+                        <p class="text-gray-600 mb-4">A renowned brain tonic that enhances memory, concentration, and cognitive function while reducing anxiety and stress.</p>
+                        <div class="border-t border-gray-200 pt-4">
+                            <h4 class="font-semibold mb-2 text-green-800">Key Benefits:</h4>
+                            <ul class="text-gray-600 space-y-1">
+                            <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Improves memory retention</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Enhances mental clarity</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Supports nervous system health</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amla -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-on-scroll" style="animation-delay: 0.6s;">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Amla" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 right-0 bg-green-600 text-white px-4 py-2 rounded-bl-lg font-semibold">
+                            Antioxidant
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="text-green-700 mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            <h3 class="text-xl font-bold">Amla (Indian Gooseberry)</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">One of the richest natural sources of Vitamin C, Amla strengthens immunity, improves digestion, and promotes healthy skin and hair.</p>
                         <div class="border-t border-gray-200 pt-4">
                             <h4 class="font-semibold mb-2 text-green-800">Key Benefits:</h4>
                             <ul class="text-gray-600 space-y-1">
                                 <li class="flex items-start">
-                                            <span class="text-blue-600 mr-2">•</span>
-                                            <span>Enhances cognitive function</span>
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Boosts immune function</span>
                             </li>
                             <li class="flex items-start">
-                                            <span class="text-blue-600 mr-2">•</span>
-                                            <span>Reduces anxiety</span>
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Supports hair growth and health</span>
                                 </li>
                                 <li class="flex items-start">
-                                            <span class="text-blue-600 mr-2">•</span>
-                                            <span>Supports nervous system</span>
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Enhances skin radiance</span>
                                 </li>
                             </ul>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tulsi -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-on-scroll" style="animation-delay: 0.8s;">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1593484812012-5a1cbc5d06d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tulsi" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 right-0 bg-purple-600 text-white px-4 py-2 rounded-bl-lg font-semibold">
+                            Adaptogen
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="text-green-700 mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            <h3 class="text-xl font-bold">Tulsi (Holy Basil)</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Revered as "The Queen of Herbs," Tulsi helps combat stress, supports respiratory health, and enhances immunity.</p>
+                        <div class="border-t border-gray-200 pt-4">
+                            <h4 class="font-semibold mb-2 text-green-800">Key Benefits:</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Supports respiratory health</span>
+                            </li>
+                            <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Balances stress hormones</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">•</span>
+                                    <span>Purifies blood and detoxifies</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Neem -->
-                    <div class="carousel-slide">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-on-scroll" style="animation-delay: 1s;">
                     <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1515728756628-fbf5008883e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Neem" class="w-full h-64 object-cover">
-                                <div class="absolute top-0 right-0 bg-green-700 text-white px-4 py-2 rounded-bl-lg font-semibold">
-                                    Antiseptic
+                        <img src="https://images.unsplash.com/photo-1591378603223-e15b45a81640?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Neem" class="w-full h-64 object-cover">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white px-4 py-2 rounded-bl-lg font-semibold">
+                            Antimicrobial
                         </div>
                     </div>
                     <div class="p-6">
@@ -2770,42 +2531,30 @@
                             </span>
                             <h3 class="text-xl font-bold">Neem</h3>
                         </div>
-                                <p class="text-gray-600 mb-4">Known as the "village pharmacy" in India, Neem has powerful antiseptic, anti-bacterial and antifungal properties.</p>
+                        <p class="text-gray-600 mb-4">A powerful antimicrobial herb that purifies blood, detoxifies the body, and treats skin conditions while supporting liver health.</p>
                         <div class="border-t border-gray-200 pt-4">
                             <h4 class="font-semibold mb-2 text-green-800">Key Benefits:</h4>
                             <ul class="text-gray-600 space-y-1">
                                 <li class="flex items-start">
                                     <span class="text-green-500 mr-2">•</span>
-                                            <span>Purifies blood</span>
+                                    <span>Treats skin disorders</span>
                                 </li>
                                 <li class="flex items-start">
                                     <span class="text-green-500 mr-2">•</span>
-                                            <span>Promotes skin health</span>
+                                    <span>Supports dental health</span>
                                 </li>
                                 <li class="flex items-start">
                                     <span class="text-green-500 mr-2">•</span>
-                                            <span>Natural immunity booster</span>
+                                    <span>Aids in blood purification</span>
                             </li>
                         </ul>
-                                </div>
                     </div>
                 </div>
                 </div>
             </div>
             
-                <div class="carousel-controls">
-                    <button class="carousel-arrow prev-arrow plants-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button class="carousel-arrow next-arrow plants-next">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="carousel-dots plants-dots"></div>
+            <div class="text-center mt-12">
+                <a href="#consultation-options" class="btn-ayurved inline-block">Consult About Herbal Remedies</a>
             </div>
         </div>
     </section>
@@ -2865,11 +2614,8 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold section-heading animate-on-scroll">What Our Clients Say</h2>
             </div>
-            <div class="carousel-container animate-on-scroll">
-                <div class="carousel-track testimonials-carousel">
-                    <!-- Testimonial 1 -->
-                    <div class="carousel-slide">
-                        <div class="testimonial-card h-full">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="testimonial-card animate-on-scroll">
                     <p class="mb-6">"After trying several treatments for my chronic skin condition, Dr. Anjali's Ayurvedic approach finally gave me relief. The personalized care and natural remedies worked wonders!"</p>
                     <div class="flex items-center">
                         <img src="https://images.unsplash.com/photo-1569913486515-b74bf7751574?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Meera Patel" class="client-image">
@@ -2879,11 +2625,7 @@
                         </div>
                     </div>
                 </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="carousel-slide">
-                        <div class="testimonial-card h-full">
+                <div class="testimonial-card animate-on-scroll" style="animation-delay: 0.3s;">
                     <p class="mb-6">"Dr. Anjali's Ayurvedic treatments have been a game-changer for my health. I had digestive issues for years, but her customized diet plan and herbal medicines have made a remarkable difference in just two months."</p>
                     <div class="flex items-center">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Raj Patel" class="client-image">
@@ -2893,11 +2635,7 @@
                         </div>
                     </div>
                 </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="carousel-slide">
-                        <div class="testimonial-card h-full">
+                <div class="testimonial-card animate-on-scroll" style="animation-delay: 0.6s;">
                     <p class="mb-6">"I've been using Tatvam Ayurved's hair serum for the past three months, and the results are incredible. My hair fall has reduced significantly, and my hair feels stronger and healthier than ever before."</p>
                     <div class="flex items-center">
                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Sneha Sharma" class="client-image">
@@ -2907,50 +2645,6 @@
                         </div>
                     </div>
                 </div>
-                    </div>
-                    
-                    <!-- Testimonial 4 (Additional) -->
-                    <div class="carousel-slide">
-                        <div class="testimonial-card h-full">
-                            <p class="mb-6">"The online consultation with Dr. Anjali was so convenient yet thorough. She took time to understand my health concerns and provided a holistic treatment plan that addressed the root cause, not just the symptoms."</p>
-                            <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Vikram Singh" class="client-image">
-                                <div class="ml-4">
-                                    <h4 class="font-bold">Vikram Singh</h4>
-                                    <p class="text-sm text-gray-600">Online Patient</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 5 (Additional) -->
-                    <div class="carousel-slide">
-                        <div class="testimonial-card h-full">
-                            <p class="mb-6">"The Panchakarma treatment at Tatvam Ayurved completely transformed my well-being. I feel rejuvenated, energetic, and my chronic joint pain has decreased by almost 80%. Dr. Anjali's expertise is truly remarkable."</p>
-                            <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Rahul Verma" class="client-image">
-                                <div class="ml-4">
-                                    <h4 class="font-bold">Rahul Verma</h4>
-                                    <p class="text-sm text-gray-600">Patient</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="carousel-controls">
-                    <button class="carousel-arrow prev-arrow testimonials-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button class="carousel-arrow next-arrow testimonials-next">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="carousel-dots testimonials-dots"></div>
             </div>
         </div>
     </section>
@@ -2966,7 +2660,7 @@
                     <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg shadow-xl h-full border-t-4 border-green-600">
                         <h3 class="text-2xl font-bold mb-6 text-green-800 flex items-center">
                             <svg class="h-6 w-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                             Send Us a Message
                         </h3>
@@ -3556,7 +3250,7 @@
     
     <!-- Handle share location button click -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {
         const shareLocationBtn = document.getElementById('share-location');
         if (shareLocationBtn) {
           shareLocationBtn.addEventListener('click', function(e) {
@@ -3592,407 +3286,6 @@
         }
         });
     </script>
-
-    <!-- All-In-One JavaScript -->
-    <script>
-        // All-In-One JavaScript for Tatvam Ayurved Website
-        document.addEventListener('DOMContentLoaded', function() {
-            // First, remove the green outline on focus
-            const removeOutlineStyle = document.createElement('style');
-            removeOutlineStyle.textContent = `
-                a:focus, button:focus, input:focus, textarea:focus, select:focus {
-                    outline: none !important;
-                    outline-offset: 0 !important;
-                    box-shadow: none !important;
-                }
-            `;
-            document.head.appendChild(removeOutlineStyle);
-
-            // PART 1: HERO SLIDER ANIMATIONS
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.hero-dot');
-            let currentSlide = 0;
-            let slideInterval;
-
-            // Start the slideshow
-            function startSlideshow() {
-                slideInterval = setInterval(nextSlide, 6000);
-            }
-
-            // Show a specific slide
-            function showSlide(index) {
-                // Hide all slides
-                slides.forEach(slide => {
-                    slide.classList.remove('active');
-                });
-                
-                // Show the selected slide
-                slides[index].classList.add('active');
-                
-                // Update dots
-                if (dots.length) {
-                    dots.forEach(dot => {
-                        dot.classList.remove('active');
-                    });
-                    dots[index].classList.add('active');
-                }
-                
-                currentSlide = index;
-            }
-
-            // Next slide function
-            function nextSlide() {
-                let next = currentSlide + 1;
-                if (next >= slides.length) {
-                    next = 0;
-                }
-                showSlide(next);
-            }
-
-            // Previous slide function
-            function prevSlide() {
-                let prev = currentSlide - 1;
-                if (prev < 0) {
-                    prev = slides.length - 1;
-                }
-                showSlide(prev);
-            }
-
-            // Setup slider if elements exist
-            if (slides.length) {
-                // Initialize with first slide active
-                showSlide(0);
-                
-                // Add dot click handlers
-                dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        clearInterval(slideInterval);
-                        showSlide(index);
-                        startSlideshow();
-                    });
-                });
-                
-                // Add swipe support for hero slider
-                let touchStartX = 0;
-                let touchEndX = 0;
-                
-                const heroSlider = document.querySelector('.hero-slider');
-                if (heroSlider) {
-                    heroSlider.addEventListener('touchstart', e => {
-                        touchStartX = e.changedTouches[0].screenX;
-                    }, {passive: true});
-                    
-                    heroSlider.addEventListener('touchend', e => {
-                        touchEndX = e.changedTouches[0].screenX;
-                        handleHeroSwipe();
-                    }, {passive: true});
-                    
-                    function handleHeroSwipe() {
-                        const difference = touchStartX - touchEndX;
-                        if (Math.abs(difference) > 50) {
-                            clearInterval(slideInterval);
-                            if (difference > 0) {
-                                nextSlide();
-                            } else {
-                                prevSlide();
-                            }
-                            startSlideshow();
-                        }
-                    }
-                }
-                
-                // Start the slideshow
-                startSlideshow();
-            }
-
-            // PART 2: SCROLL ANIMATIONS
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            
-            // Function to check if an element is in viewport
-            function isInViewport(element) {
-                const rect = element.getBoundingClientRect();
-                return (
-                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
-                );
-            }
-            
-            // Function to handle scroll animations
-            function handleScrollAnimations() {
-                animatedElements.forEach(element => {
-                    if (isInViewport(element)) {
-                        element.classList.add('show');
-                        
-                        // Check for stagger children
-                        if (element.classList.contains('stagger-children')) {
-                            const children = element.children;
-                            Array.from(children).forEach((child, index) => {
-                                setTimeout(() => {
-                                    child.style.opacity = '1';
-                                    child.style.transform = 'translateY(0)';
-                                }, index * 100); // 100ms delay between each child
-                            });
-                        }
-                    }
-                });
-            }
-            
-            // Add scroll event listener
-            window.addEventListener('scroll', handleScrollAnimations);
-            
-            // Initial check for elements in viewport
-            handleScrollAnimations();
-
-            // PART 3: CAROUSEL FUNCTIONALITY
-            // Initialize all carousels
-            initCarousel('products-carousel', 'products-prev', 'products-next', 'products-dots');
-            initCarousel('principles-carousel', 'principles-prev', 'principles-next', 'principles-dots');
-            initCarousel('plants-carousel', 'plants-prev', 'plants-next', 'plants-dots');
-            initCarousel('testimonials-carousel', 'testimonials-prev', 'testimonials-next', 'testimonials-dots');
-            
-            function initCarousel(trackClass, prevBtnClass, nextBtnClass, dotsClass) {
-                const track = document.querySelector(`.${trackClass}`);
-                if (!track) return;
-                
-                const slides = Array.from(track.children);
-                const prevButton = document.querySelector(`.${prevBtnClass}`);
-                const nextButton = document.querySelector(`.${nextBtnClass}`);
-                const dotsContainer = document.querySelector(`.${dotsClass}`);
-                
-                if (!slides.length || !prevButton || !nextButton || !dotsContainer) return;
-                
-                let slideWidth;
-                let slidesPerView = 1;
-                let currentIndex = 0;
-                
-                // Create dots
-                dotsContainer.innerHTML = ''; // Clear existing dots
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('button');
-                    dot.classList.add('carousel-dot');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => {
-                        goToSlide(index);
-                    });
-                    dotsContainer.appendChild(dot);
-                });
-                
-                const dots = Array.from(dotsContainer.children);
-                
-                // Set initial position and slidesPerView based on screen size
-                function setupCarousel() {
-                    // Calculate slidesPerView based on screen width
-                    if (window.innerWidth >= 1024) {
-                        slidesPerView = 4;
-                    } else if (window.innerWidth >= 768) {
-                        slidesPerView = 3;
-                    } else if (window.innerWidth >= 640) {
-                        slidesPerView = 2;
-                    } else {
-                        slidesPerView = 1;
-                    }
-                    
-                    // Calculate slide width
-                    slideWidth = track.parentElement.offsetWidth / slidesPerView;
-                    
-                    // Set slide widths
-                    slides.forEach(slide => {
-                        slide.style.minWidth = `${slideWidth}px`;
-                    });
-                    
-                    // Reset position
-                    goToSlide(currentIndex);
-                }
-                
-                function goToSlide(index) {
-                    // Ensure index is within bounds
-                    if (index < 0) {
-                        index = 0;
-                    } else if (index > slides.length - slidesPerView) {
-                        index = slides.length - slidesPerView;
-                    }
-                    
-                    currentIndex = index;
-                    
-                    // Move track
-                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-                    
-                    // Update dots
-                    dots.forEach((dot, i) => {
-                        dot.classList.toggle('active', i === currentIndex);
-                    });
-                    
-                    // Disable/enable buttons
-                    prevButton.disabled = index === 0;
-                    nextButton.disabled = index >= slides.length - slidesPerView;
-                    
-                    // Visual indication of disabled buttons
-                    prevButton.style.opacity = index === 0 ? 0.5 : 1;
-                    nextButton.style.opacity = index >= slides.length - slidesPerView ? 0.5 : 1;
-                }
-                
-                // Event listeners
-                prevButton.addEventListener('click', () => {
-                    goToSlide(currentIndex - 1);
-                });
-                
-                nextButton.addEventListener('click', () => {
-                    goToSlide(currentIndex + 1);
-                });
-                
-                // Handle window resize
-                window.addEventListener('resize', setupCarousel);
-                
-                // Initial setup
-                setupCarousel();
-                
-                // Add touch support for mobile
-                let touchStartX = 0;
-                let touchEndX = 0;
-                
-                track.addEventListener('touchstart', e => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, {passive: true});
-                
-                track.addEventListener('touchend', e => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                }, {passive: true});
-                
-                function handleSwipe() {
-                    const difference = touchStartX - touchEndX;
-                    // Threshold for swipe detection - 50px
-                    if (Math.abs(difference) > 50) {
-                        if (difference > 0) {
-                            // Swipe left - go to next slide
-                            goToSlide(currentIndex + 1);
-                        } else {
-                            // Swipe right - go to previous slide
-                            goToSlide(currentIndex - 1);
-                        }
-                    }
-                }
-            }
-
-            // PART 4: AYURVEDIC ELEMENTS ANIMATION
-            // Animate ayurvedic decorative elements
-            const ayurvedicElements = document.querySelectorAll('.ayurvedic-element, .leaf-bg');
-            
-            function animateAyurvedicElements() {
-                ayurvedicElements.forEach(element => {
-                    // Random translation within a small range
-                    const translateX = Math.random() * 20 - 10; // -10px to +10px
-                    const translateY = Math.random() * 20 - 10; // -10px to +10px
-                    const rotation = Math.random() * 10 - 5; // -5deg to +5deg
-                    
-                    element.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotation}deg)`;
-                    
-                    // Reset after animation completes
-                    setTimeout(() => {
-                        element.style.transition = 'transform 3s ease';
-                        element.style.transform = '';
-                        
-                        // Remove transition after it completes to prevent interference with the next animation
-                        setTimeout(() => {
-                            element.style.transition = '';
-                        }, 3000);
-                    }, 3000);
-                });
-            }
-            
-            // Initial animation
-            animateAyurvedicElements();
-            
-            // Repeat animation at intervals
-            setInterval(animateAyurvedicElements, 6000);
-
-            // PART 5: MOBILE MENU
-            const menuToggle = document.querySelector('.menu-toggle');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if(menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', () => {
-                    menuToggle.classList.toggle('active');
-                    mobileMenu.classList.toggle('show');
-                });
-                
-                // Close mobile menu when a link is clicked
-                const mobileLinks = mobileMenu.querySelectorAll('a');
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        menuToggle.classList.remove('active');
-                        mobileMenu.classList.remove('show');
-                    });
-                });
-            }
-            
-            // PART 6: SMOOTH SCROLLING
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    // Get the target element
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return; // Skip if href is just "#"
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if(!targetElement) return; // Skip if target element doesn't exist
-                    
-                    // Get header height for offset
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    
-                    // Calculate position to scroll to
-                    const position = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    // Scroll smoothly
-                    window.scrollTo({
-                        top: position,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // PART 7: LAZY LOADING
-            // Lazy load images
-            if ('IntersectionObserver' in window) {
-                const lazyImages = document.querySelectorAll('img.lazy');
-                
-                const imageObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const lazyImage = entry.target;
-                            const src = lazyImage.getAttribute('data-src');
-                            
-                            if(src) {
-                                lazyImage.src = src;
-                                lazyImage.classList.remove('lazy');
-                                lazyImage.classList.add('loaded');
-                                imageObserver.unobserve(lazyImage);
-                            }
-                        }
-                    });
-                });
-                
-                lazyImages.forEach(image => {
-                    imageObserver.observe(image);
-                });
-            } else {
-                // Fallback for browsers that don't support IntersectionObserver
-                document.addEventListener('scroll', function() {
-                    const lazyImages = document.querySelectorAll('img.lazy');
-                    lazyImages.forEach(img => {
-                        if(isInViewport(img)) {
-                            const src = img.getAttribute('data-src');
-                            if(src) {
-                                img.src = src;
-                                img.classList.remove('lazy');
-                                img.classList.add('loaded');
-                            }
-                        }
-                    });
-                });
-            }
-        });
-    </script>
 </body>
 </html>
+
